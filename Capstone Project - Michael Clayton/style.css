@@ -8,7 +8,7 @@ header {
     background-color: red;
     text-align: center;
     color: white;
-    padding-top: 15px; /* Corrected padding declaration */
+    padding-top: 15px;
 }
 
 /* Navigation Styling */
@@ -25,7 +25,7 @@ nav ul {
 nav ul li {
     display: inline-block;
     padding: 15px 20px;
-	position: relative;
+    position: relative;
 }
 
 nav ul li:hover ul {
@@ -80,13 +80,14 @@ nav h1 {
     font-family: 'Arial Black', Arial, sans-serif;
 }
 
+/* Section Styling */
 section {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* h2 Headings Styling */
+/* Headings Styling */
 h2 {
     text-align: center;
     font-style: italic;
@@ -94,13 +95,12 @@ h2 {
     border-bottom: 1px solid #777;
 }
 
-/* h3 Headings Styling */
 h3 {
     font-style: italic;
     font-family: 'Arial Black', Arial, sans-serif;
 }
 
-h3 + a > img { /* Selects an image directly following h3 via a hyperlink */
+h3 + a > img {
     width: 200px;
 }
 
@@ -113,8 +113,8 @@ p {
 .carousel-inner .slide { 
     display: none;
     background-size: cover;
-	background-position: center 35%;
-    height: 400px; /* Adjust height as needed */
+    background-position: center 35%;
+    height: 400px;
 }
 
 .carousel-inner .slide.active {
@@ -134,10 +134,10 @@ button.prev, button.next {
 button.prev { left: 10px; }
 button.next { right: 10px; }
 
+/* Aside Styling */
 aside {
     float: right;
-	width: 30%;
-	font-style: italic;
+    width: 30%;
     margin-left: 20px;
 }
 
@@ -153,13 +153,10 @@ aside {
     margin: auto;
 }
 
-.contact-form label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
+.contact-form label, 
 .contact-form input,
 .contact-form button {
+    display: block;
     width: 100%;
     padding: 10px;
     margin: 5px 0;
@@ -171,8 +168,8 @@ footer {
     background-color: red;
     text-align: center;
     color: white;
-	clear: both;
-	position: relative;
+    clear: both;
+    position: relative;
 }
 
 footer::before {
@@ -181,90 +178,68 @@ footer::before {
     top: 0;
     left: 0;
     width: 100%;
-    height: 3px; /* Adjust the height of the line as needed */
-    background-color: black; /* Change color if necessary */
+    height: 3px;
+    background-color: black;
 }
 
-@media (max-width: 768px) {
-    .content-blocks article {
-        width: calc(100% - 40px);
-	}
-}
-
-/* Add some styling for the draggable elements */
-.draggable {
-	cursor: pointer;
-}
-
-/* Add styling for the drop zone */
-#types {
-	border: 2px dashed #ccc;
-	padding: 20px;
-	margin-top: 20px;
-}
-
+/* Responsive Design Adjustments */
 @media screen and (max-width: 768px) {
-    /* Stack the navigation items instead of inline display */
     nav ul li {
         display: block;
         padding: 10px 0;
-	}
-	
-    /* Ensure the dropdown menus are full width */
+    }
+    
     nav ul li ul {
         width: 100%;
-	}
-	
-    /* Adjust text size and other styling as needed for smaller screens */
+    }
+    
     header h1, nav ul li a {
         font-size: 14px;
-	}
-	
-    /* Hide aside elements or adjust their position for smaller screens */
+    }
+    
     aside {
         width: 100%;
         float: none;
         margin: 10px 0;
-	}
-	
-    /* Adjust section padding or margins as needed */
+    }
+    
     section, .contact-form form {
         padding: 10px;
         width: auto;
-	}
-	
-    /* Make images responsive */
+    }
+    
     img {
         max-width: 100%;
         height: auto;
-	}
-	
-    /* Adjust the size of buttons for easier interaction on touch devices */
+    }
+    
     button.prev, button.next, .button {
         padding: 15px 25px;
-	}
-	
-    /* Ensure that any floated elements are cleared for a linear, single-column layout */
+    }
+    
     .carousel-inner .slide, .contact-form, footer {
         clear: both;
-	}
-	
-    /* Optional: Implement a hamburger menu toggle for smaller screens */
+    }
+    
     .hamburger-menu {
         display: block;
         cursor: pointer;
-	}
-	
-    /* Initially hide the dropdown menu content and only show it when hamburger menu is toggled */
+    }
+    
     nav ul {
         display: none;
-	}
-	
-    /* Additional adjustments for form elements to ensure full width */
+    }
+    
     .contact-form input[type="text"],
     .contact-form input[type="email"],
     .contact-form input[type="tel"],
     .contact-form button[type="submit"] {
-        width: calc(100% - 20px); /* Adjusting for padding */
-	}
+        width: calc(100% - 20px);
+    }
 }
+
+@media screen and (min-width: 769px) {
+    .hamburger-menu {
+        display: none;
+    }
+ 
