@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Welcome to the World of Cars</title>
+		<link rel="stylesheet" href="style.css">
+		
+	</head>
+	<body>
+		<header>
+			<h1>Welcome to the World of Cars</h1>
+			<nav>
+				<button class="hamburger-menu">☰ Menu</button>
+				<ul>
+					<li><a href="#home">Home</a>
+						<ul>
+							<li><a href="#services">Our Services</a></li>
+							<li><a href="#contact-form">Contact Us</a></li>
+						</ul>
+					</li>
+					<li><a href="2types-of-cars.html">Types of Cars</a>
+						<ul>
+							<li><a href="2types-of-cars.html#sedans">Sedans</a></li>
+							<li><a href="2types-of-cars.html#suvs">SUVs</a></li>
+							<li><a href="2types-of-cars.html#trucks">Trucks</a></li>
+						</ul>
+					</li>
+					<li><a href="3features.html">Features</a>
+						<ul>
+							<li><a href="3features.html#safety">Safety Systems</a></li>
+							<li><a href="3features.html#infotainment">Infotainment Systems</a></li>
+							<li><a href="3features.html#hybrid">Hybrid Technology</a></li>
+						</ul>
+					</li>
+					<li><a href="4popular-brands.html">Popular Brands</a>
+						<ul>
+							<li><a href="4popular-brands.html#toyota">Toyota</a></li>
+							<li><a href="4popular-brands.html#lexus">Lexus</a></li>
+							<li><a href="4popular-brands.html#scion">Scion</a></li>
+						</ul>
+					</li>
+					<li><a href="5fuel-efficiency.html">Fuel Efficiency</a>
+						<ul>
+							<li><a href="5fuel-efficiency.html#camry">Toyota Camry</a></li>
+							<li><a href="5fuel-efficiency.html#nx">Lexus NX 450h+</a></li>
+							<li><a href="5fuel-efficiency.html#tacoma">Toyota Tacoma</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		
+		<main>
+			<div class="carousel">
+				<div class="carousel-inner">
+					<div class="slide active" style="background-image:url('images/home_crown1.jpg');">
+						<a href="2types-of-cars.html#sedans">Discover Sedans</a>
+					</div>
+					<div class="slide" style="background-image:url('images/home_gx.jpg');">
+						<a href="2types-of-cars.html#suvs">Explore SUVs</a>
+					</div>
+					<div class="slide" style="background-image:url('images/home_capstone1.jpg');">
+						<a href="5fuel-efficiency.html#tacoma">Check Out Trucks</a>
+					</div>
+					<div class="slide" style="background-image:url('images/home_tx1.jpg');">
+						<a href="3features.html#hybrid">View Electric Cars</a>
+					</div>
+				</div>
+				<button class="prev">Previous</button>
+				<button class="next">Next</button>
+			</div>
+			
+			<script>
+				// Carousel Script
+				document.addEventListener('DOMContentLoaded', function () {
+					let currentIndex = 0;
+					const slides = document.querySelectorAll('.carousel .slide');
+					const totalSlides = slides.length;
+					const nextButton = document.querySelector('.next');
+					const prevButton = document.querySelector('.prev');
+					
+					function goToSlide(index) {
+						slides[currentIndex].classList.remove('active');
+						currentIndex = (index + totalSlides) % totalSlides;
+						slides[currentIndex].classList.add('active');
+					}
+					
+					nextButton.addEventListener('click', () => goToSlide(currentIndex + 1));
+					prevButton.addEventListener('click', () => goToSlide(currentIndex - 1));
+					
+					setInterval(() => {
+						goToSlide(currentIndex + 1);
+					}, 5000);
+				});
+				
+				// Hamburger Menu Script
+				document.addEventListener('DOMContentLoaded', function() {
+					const hamburger = document.querySelector('.hamburger-menu');
+					const navUL = document.querySelector('nav ul');
+					
+					hamburger.addEventListener('click', function() {
+						// Toggle the display of the nav ul
+						if (navUL.style.display === 'block') {
+							navUL.style.display = 'none';
+							} else {
+							navUL.style.display = 'block';
+						}
+					});
+				});
+			</script>
+			
+			<section id="services" class="services">
+				<h2>Our Services</h2> 
+				<article>
+					<div style="text-align: center;">
+						<h3>Types of Cars</h3>
+						<img src="images/home_types.jpg" width="150" alt="Types of Cars">
+						<p>There is a diverse array of car types to suit every lifestyle and preference. Sedans, known for their sleek design and comfortable interiors, are popular among families and commuters alike for their practicality and fuel efficiency. SUVs offer versatility with spacious interiors, capable of accommodating both passengers and cargo, while providing a commanding presence on the road. Pickup trucks combine ruggedness with utility, ideal for hauling heavy loads and navigating rough terrain. Hatchbacks boast compact yet versatile designs, perfect for urban environments and providing ample cargo space. Minivans prioritize passenger comfort and convenience, making them the go-to choice for large families or group outings. Sports cars deliver exhilarating performance and stylish design, appealing to enthusiasts seeking thrilling driving experiences. Convertibles offer the freedom of open-air driving, adding a touch of luxury and excitement to any journey. Each car type caters to distinct needs and preferences, ensuring there's a perfect match for every driver.</p>
+						<h3>The Driving Spirit</h3>
+						<p>Owning a car not only offers practical advantages like convenience and mobility but also embodies a cultural symbol deeply rooted in the American psyche, reflecting notions of freedom and independence. The American driving spirit celebrates the open road as a pathway to exploration, adventure, and self-discovery, resonating with the nation's historic love affair with automobiles and the vast landscapes they traverse. From cross-country road trips to daily commutes, owning a car in America represents more than just transportation; it embodies a sense of autonomy and the spirit of exploration ingrained in the nation's identity.</p>
+					</div>
+				</article>
+			</section>
+		
+		<section id="contact-form" class="contact-form">
+		<h2>Contact Us</h2>
+		<form action="submit-form" method="POST">
+		<label for="fname">First name:</label>
+		<input type="text" id="fname" name="fname" value="John">
+		<label for="lname">Last name:</label>
+		<input type="text" id="lname" name="lname" value="Doe">
+		
+		<label for="phone">Phone Number:</label>
+		<input type="tel" id="phone" name="phone" value="***-***-****" required>
+		
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" value="johndoe@here.com" required>
+		
+		<p>I have this vehicle:</p>
+		<input type="checkbox" id="sedan" name="vehicle1" value="Sedan">
+		<label for="sedan"> Sedan</label><br>
+		<input type="checkbox" id="suv" name="vehicle2" value="SUV">
+		<label for="suv"> SUV</label><br>
+		<input type="checkbox" id="truck" name="vehicle3" value="Truck">
+		<label for="truck"> Truck</label><br>
+		<input type="checkbox" id="minivan" name="vehicle4" value="Minivan">
+		<label for="minivan"> Minivan</label><br>
+		
+		<button type="submit">Submit</button>
+		<input type="reset" value="Reset">
+		</form>
+		</section>
+		</main>
+		
+		<footer>
+		<p>&copy; 2024 World of Cars. All rights reserved. Contact us at info@worldofcars.com</p>
+		</footer>
+		</body>
+		</html>
+				
