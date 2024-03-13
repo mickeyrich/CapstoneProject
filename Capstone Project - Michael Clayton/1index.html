@@ -72,40 +72,54 @@
 			</div>
 			
 			<script>
-				// Carousel Script
 				document.addEventListener('DOMContentLoaded', function () {
+					// Carousel functionality
 					let currentIndex = 0;
 					const slides = document.querySelectorAll('.carousel .slide');
-					const totalSlides = slides.length;
 					const nextButton = document.querySelector('.next');
 					const prevButton = document.querySelector('.prev');
 					
 					function goToSlide(index) {
 						slides[currentIndex].classList.remove('active');
-						currentIndex = (index + totalSlides) % totalSlides;
+						currentIndex = (index + slides.length) % slides.length;
 						slides[currentIndex].classList.add('active');
 					}
 					
 					nextButton.addEventListener('click', () => goToSlide(currentIndex + 1));
 					prevButton.addEventListener('click', () => goToSlide(currentIndex - 1));
 					
-					setInterval(() => {
-						goToSlide(currentIndex + 1);
-					}, 5000);
-				});
-				
-				// Hamburger Menu Script
-				document.addEventListener('DOMContentLoaded', function() {
+					setInterval(() => goToSlide(currentIndex + 1), 5000);
+					
+					// Hamburger menu functionality
 					const hamburger = document.querySelector('.hamburger-menu');
 					const navUL = document.querySelector('nav ul');
 					
 					hamburger.addEventListener('click', function() {
-						// Toggle the display of the nav ul
-						if (navUL.style.display === 'block') {
-							navUL.style.display = 'none';
-							} else {
-							navUL.style.display = 'block';
+						navUL.style.display = navUL.style.display === 'block' ? 'none' : 'block';
+					});
+					
+					// Contact form functionality
+					const form = document.querySelector('.contact-form form');
+					const fname = document.getElementById('fname');
+					const lname = document.getElementById('lname');
+					const phone = document.getElementById('phone');
+					const email = document.getElementById('email');
+					
+					form.addEventListener('submit', function(event) {
+						event.preventDefault(); // Prevent form from submitting traditionally
+						
+						// Basic validation example
+						if (!fname.value || !lname.value || !phone.value || !email.value) {
+							alert('Please fill in all fields.');
+							return;
 						}
+						
+						// Simulate form submission feedback
+						alert('Thank you for contacting us, ' + fname.value + '! Your information has been received.');
+						
+						// Here you would typically send the data to a server using fetch() or XMLHttpRequest
+						// For demonstration purposes, we're just resetting the form
+						form.reset();
 					});
 				});
 			</script>
@@ -121,41 +135,41 @@
 						<p>Owning a car not only offers practical advantages like convenience and mobility but also embodies a cultural symbol deeply rooted in the American psyche, reflecting notions of freedom and independence. The American driving spirit celebrates the open road as a pathway to exploration, adventure, and self-discovery, resonating with the nation's historic love affair with automobiles and the vast landscapes they traverse. From cross-country road trips to daily commutes, owning a car in America represents more than just transportation; it embodies a sense of autonomy and the spirit of exploration ingrained in the nation's identity.</p>
 					</div>
 				</article>
-			</section>
-		
-		<section id="contact-form" class="contact-form">
-		<h2>Contact Us</h2>
-		<form action="submit-form" method="POST">
-		<label for="fname">First name:</label>
-		<input type="text" id="fname" name="fname" value="John">
-		<label for="lname">Last name:</label>
-		<input type="text" id="lname" name="lname" value="Doe">
-		
-		<label for="phone">Phone Number:</label>
-		<input type="tel" id="phone" name="phone" value="***-***-****" required>
-		
-		<label for="email">Email:</label>
-		<input type="email" id="email" name="email" value="johndoe@here.com" required>
-		
-		<p>I have this vehicle:</p>
-		<input type="checkbox" id="sedan" name="vehicle1" value="Sedan">
-		<label for="sedan"> Sedan</label><br>
-		<input type="checkbox" id="suv" name="vehicle2" value="SUV">
-		<label for="suv"> SUV</label><br>
-		<input type="checkbox" id="truck" name="vehicle3" value="Truck">
-		<label for="truck"> Truck</label><br>
-		<input type="checkbox" id="minivan" name="vehicle4" value="Minivan">
-		<label for="minivan"> Minivan</label><br>
-		
-		<button type="submit">Submit</button>
-		<input type="reset" value="Reset">
-		</form>
-		</section>
-		</main>
-		
-		<footer>
-		<p>&copy; 2024 World of Cars. All rights reserved. Contact us at info@worldofcars.com</p>
-		</footer>
-		</body>
-		</html>
+				</section>
 				
+				<section id="contact-form" class="contact-form">
+					<h2>Contact Us</h2>
+					<form action="submit-form" method="POST">
+						<label for="fname">First name:</label>
+						<input type="text" id="fname" name="fname" value="John">
+						<label for="lname">Last name:</label>
+						<input type="text" id="lname" name="lname" value="Doe">
+						
+						<label for="phone">Phone Number:</label>
+						<input type="tel" id="phone" name="phone" value="***-***-****" required>
+						
+						<label for="email">Email:</label>
+						<input type="email" id="email" name="email" value="johndoe@here.com" required>
+						
+						<p>I have this vehicle:</p>
+						<input type="checkbox" id="sedan" name="vehicle1" value="Sedan">
+						<label for="sedan"> Sedan</label><br>
+						<input type="checkbox" id="suv" name="vehicle2" value="SUV">
+						<label for="suv"> SUV</label><br>
+						<input type="checkbox" id="truck" name="vehicle3" value="Truck">
+						<label for="truck"> Truck</label><br>
+						<input type="checkbox" id="minivan" name="vehicle4" value="Minivan">
+						<label for="minivan"> Minivan</label><br>
+						
+						<button type="submit">Submit</button>
+						<input type="reset" value="Reset">
+					</form>
+				</section>
+				</main>
+				
+				<footer>
+					<p>&copy; 2024 World of Cars. All rights reserved. Contact us at info@worldofcars.com</p>
+				</footer>
+			</body>
+		</html>
+		
